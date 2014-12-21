@@ -14,7 +14,7 @@ import Control.Distributed.Process.Platform
   , spawnSignalled
   , Killable(..)
   )
-import Control.Distributed.Process.Platform.Service.Registry
+import Control.Distributed.Process.Registry
   ( Registry(..)
   , KeyUpdateEvent(..)
   , RegistryKeyMonitorNotification(..)
@@ -38,10 +38,10 @@ import Control.Distributed.Process.Platform.Service.Registry
   , RegisterKeyReply(..)
   , UnregisterKeyReply(..)
   )
-import qualified Control.Distributed.Process.Platform.Service.Registry as Registry
-import Control.Distributed.Process.Platform.Test
-import Control.Distributed.Process.Platform.Time
-import Control.Distributed.Process.Platform.Timer (sleep)
+import qualified Control.Distributed.Process.Registry as Registry
+import Control.Distributed.Process.Tests.Internal.Utils
+import Control.Distributed.Process.Extras.Time
+import Control.Distributed.Process.Extras.Timer (sleep)
 import Control.Monad (void, forM_, forM)
 import Control.Rematch
   ( equalTo
