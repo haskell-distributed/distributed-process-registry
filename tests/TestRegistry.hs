@@ -9,7 +9,7 @@ import Control.Concurrent.MVar (newEmptyMVar, takeMVar)
 import Control.Concurrent.Utils (Lock, Exclusive(..), Synchronised(..))
 import Control.Distributed.Process
 import Control.Distributed.Process.Node
-import Control.Distributed.Process.Platform
+import Control.Distributed.Process.Extras
   ( awaitExit
   , spawnSignalled
   , Killable(..)
@@ -55,10 +55,10 @@ import Prelude hiding (catch)
 #endif
 
 import Test.HUnit (Assertion, assertFailure)
-import Test.Framework (Test, testGroup)
+import Test.Framework (Test, testGroup, defaultMain)
 import Test.Framework.Providers.HUnit (testCase)
-import TestUtils
 
+import Network.Transport.TCP
 import qualified Network.Transport as NT
 
 myRegistry :: Process (Registry String ())
@@ -528,6 +528,14 @@ tests transport = do
            (testProc testMonitorUnregistration)
         ]
     ]
+
+-- | Given a @builder@ function, make and run a test suite on a single transport
+testMain :: (NT.Transport -> IO [Test]) -> IO ()
+testMain builder = do
+  Right (transport, _) <- createTransportExposeInternals
+                                      "127.0.0.1" "10501" defaultTCPParameters
+  testData <- builder transport
+  defaultMain testData
 
 main :: IO ()
 main = testMain $ tests
