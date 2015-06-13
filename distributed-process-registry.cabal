@@ -33,16 +33,16 @@ library
                    distributed-process-supervisor >= 0.1.2 && < 0.2,
                    distributed-process-client-server >= 0.1.2 && < 0.2,
                    binary >= 0.6.3.0 && < 0.8,
-                   deepseq >= 1.3.0.1 && < 1.4,
+                   deepseq >= 1.3.0.1 && < 1.5,
                    mtl,
                    containers >= 0.4 && < 0.6,
                    hashable >= 1.2.0.5 && < 1.3,
                    unordered-containers >= 0.2.3.0 && < 0.3,
                    fingertree < 0.2,
                    stm >= 2.4 && < 2.5,
-                   time > 1.4 && < 1.5,
+                   time > 1.4 && < 1.6,
                    transformers
-  if impl(ghc <= 7.5) 
+  if impl(ghc <= 7.5)
     Build-Depends:   template-haskell == 2.7.0.0,
                      derive == 2.5.5,
                      uniplate == 1.6.12,
@@ -70,19 +70,19 @@ test-suite RegistryTests
                    data-accessor,
                    fingertree < 0.2,
                    network-transport >= 0.4 && < 0.5,
-                   deepseq >= 1.3.0.1 && < 1.4,
+                   deepseq >= 1.3.0.1 && < 1.5,
                    mtl,
                    network-transport-tcp >= 0.4 && < 0.5,
                    binary >= 0.6.3.0 && < 0.8,
                    network >= 2.3 && < 2.7,
                    HUnit >= 1.2 && < 2,
                    stm >= 2.3 && < 2.5,
-                   time > 1.4 && < 1.5,
+                   time > 1.4 && < 1.6,
                    test-framework >= 0.6 && < 0.9,
                    test-framework-hunit,
                    transformers,
                    rematch >= 0.2.0.0
-  if impl(ghc <= 7.5) 
+  if impl(ghc <= 7.5)
     Build-Depends: ghc-prim
   hs-source-dirs:
                    tests
