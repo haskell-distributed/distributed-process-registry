@@ -9,6 +9,7 @@ Copyright:      Tim Watson 2012 - 2015
 Author:         Tim Watson
 Maintainer:     watson.timothy@gmail.com
 Stability:      experimental
+Category:       Control
 Homepage:       http://github.com/haskell-distributed/distributed-process-registry
 Bug-Reports:    http://github.com/haskell-distributed/distributed-process-registry/issues
 synopsis:       Cloud Haskell Extended Process Registry
